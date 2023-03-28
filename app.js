@@ -107,6 +107,7 @@ if(isBefore(nowdate, deadline) == true){
       hide("ant")
       show("marchbook")
       localStorage.setItem("pageon", null)
+      show("entercountryname")
    }
 
    function showmarch(){
@@ -127,6 +128,7 @@ if(isBefore(nowdate, deadline) == true){
          let nn = document.getElementById("inputcountryname").value
          localStorage.setItem("localcountry", nn)
          alert("Your country's name is: " + nn)
+         hide("entercountryname")
       }
    });
 
