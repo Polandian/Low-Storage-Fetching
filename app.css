@@ -1,0 +1,109 @@
+@keyframes loadedanim {
+   from {width: 20px; height: 18px; top: 390px; left: 660px;}
+   to {width: 160px; height: 140px; top: 330px; left: 590px;}
+}
+
+body{
+   background-color: rgb(45,45,45);
+   overflow: hidden;
+}
+
+#errortext{
+   color: white;
+   position: absolute;
+   font-family: "Who are you";
+   font-size: 45px;
+}
+
+#startnewgame{
+   transition: 0.5s;
+   animation: loadedanim 0.5s;
+   width: 160px;
+   height: 140px;
+   top: 330px; 
+   left: 590px;
+}
+
+#startnewgame:hover{
+   transform: scale(1.2) perspective(1px);
+   cursor: pointer;
+}
+
+.menubutton{
+   transition: 0.3s;
+}
+
+.menubutton:hover{
+   transform: scale(1.2) perspective(1px);
+}
+
+#ant{
+   margin: 130px 0 0 467px;
+   width: 20%;
+   border: 1px solid rgb(45,45,45);
+   border-radius: 15px;
+   box-shadow: 0 0 10px 2px;
+   background-color: rgb(45,45,45);
+   position: absolute;
+   padding: 70px;
+   padding-bottom: 40px;
+}
+
+#anttext{
+   font-family: "vinque";
+   font-size: 20px;
+   color: white;
+   position: absolute;
+   left: 85px;
+   top: -5px;
+}
+
+#marchtext{
+   width: 100%;
+   padding: 10px 20px;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+   font-family: "vinque";
+   font-size: 15px;
+   width: 271px;
+   height: 200px;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+}
+
+#marchtext::-webkit-scrollbar {
+   display: none;
+}
+
+#sendmarch{
+   width: 271px;
+   height: 50px;
+   box-shadow: inset 0 0 0 0 black;
+   border: 0 solid blueviolet;
+   transition: ease-out 0.5s;
+   font-family: "vinque";
+   margin-top: 20px;
+}
+#sendmarch:hover{
+   box-shadow: inset 301px 0 0 0 black;
+   cursor: pointer;
+   color: rgb(255, 255, 255);
+   width: 301px;
+   height: 60px;
+   margin-left: -15px;
+}
+
+#marchbox{
+   margin: 130px 0 0 467px;
+   width: 20%;
+   border: 1px solid rgb(45,45,45);
+   border-radius: 15px;
+   box-shadow: 0 0 10px 2px;
+   background-color: rgb(45,45,45);
+   position: absolute;
+   padding: 70px;
+   height: 210px;
+   top: 50px;
+   text-align: center;
+   font-family: vinque;
+}
