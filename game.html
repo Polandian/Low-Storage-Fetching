@@ -1,1 +1,80 @@
-<object type="text/html" data="file.html"></object>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GAME</title>
+   <link onerror="FileError()" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Polandian/Low-Storage-Fetching@main/app.css">
+</head>
+<body>   
+   <p id="errortext" style="display: none; top: 230px; left: 170px; font-family: jetbrains mono;">No internet connection.</p>
+
+   <div id="ant" style="display: none;">
+      <p id="anttext">You need to make a <i><b><a href="https://en.wikipedia.org/wiki/March_(territory)" style="color: white;" target="_blank">march.</a></b></i></p>
+      <textarea id="marchtext" style="resize: none;" placeholder="Enter your march." required></textarea>
+      <button id="sendmarch" onclick="sendmarch()">CREATE</button>
+   </div>  
+   
+   <div id="marchbox" style="display: none; word-break: break-all;">
+      <h1 style="top: -10px; position: absolute; left: 120px; color: white; font-family: vinque; font-size: 30px;">Your march:</h1>
+      <p style="color: rgb(212, 211, 211); font-size: 90%" id="marchboxtext"></p>
+   </div>
+
+   <div id="entercountryname" style="display: none;">
+      <h1 style="position: absolute; top: 200px; left: 480px; color: white; font-family: vinque;">Enter your Country's name:</h1><br>
+      <h6 style="position: absolute; top: 298px; left: 615px; color: white; font-family: vinque;">This can't be changed.</h6>
+      <input type="text" id="inputcountryname" style="width: 383px; height: 50px; font-size: 50px; font-family: vinque; position: absolute; top: 265px; left: 480px;" required>
+   </div>
+
+   <script>
+      function FileError(){
+         let errortext = document.getElementById("errortext")
+         window.onload = function(){
+            errortext.style.display = "block"
+            console.log("error: file don't exist")
+            document.body.style.backgroundColor = "black";
+         }
+      }
+   </script>
+
+   <div id="assets">
+      <video id="video" width="100%" height="auto" style="cursor: none; display: none;">
+         <source src="file:///C:/Territorifiy - Low Storage/assets/intro.mp4" type="video/mp4">
+      </video>
+      <audio src="file:///C:/Territorifiy - Low Storage/assets/scary.mp3""></audio>
+      <audio src="file:///C:/Territorifiy - Low Storage/assets/warmusic1.mp3"></audio>
+      <audio src="file:///C:/Territorifiy - Low Storage/assets/warmusic2.mp3"></audio>
+      <image id="start" src="file:///C:/Territorifiy - Low Storage/assets/start.jpg" style="cursor: none; display: none; top: 100px; position: absolute;" width="100%" height="auto""></image>
+      <image id="startnewgame" src="file:///C:/Territorifiy - Low Storage/assets/startnewgame.png" style="display: none; position: absolute;" onclick="setstart()"></image>
+      <!-- FARMLAND -->
+      <image class="menubutton" id="farmland" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; top: 50px; left: 1200px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="farmland()"></image>
+      <!-- ECONOMY -->
+      <image class="menubutton" id="economy" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; top: 190px; left: 1200px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="economy()"></image>
+      <!-- ARMY -->
+      <image class="menubutton" id="army" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; top: 330px; left: 1200px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="army()"></image>
+      <!-- RELATIONSHIP -->
+      <image class="menubutton" id="relationship" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; top: 470px; left: 1200px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="relationship()"></image>
+      <!-- CITIES -->
+      <image class="menubutton" id="cities" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; top: 50px; left: 20px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="cities()"></image>
+      <!-- HEALTHCARE-->
+      <image class="menubutton" id="healthcare" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; left: 20px; top: 190px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="healthcare()"></image>
+      <!-- HAPPINESS INDEX -->
+      <image class="menubutton" id="happinessindex" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; left: 20px; top: 330px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="hpi()"></image>
+      <!-- VOTING -->
+      <image class="menubutton" id="voting" src="file:///C:/Territorifiy - Low Storage/assets/farmland.png" style="position: absolute; left: 20px; top: 470px; height: 120px; cursor: pointer; width: 140px; display: none; position: absolute;" onclick="voting()"></image>
+      <!-- EDUCATION -->
+      <image class="menubutton" id="education" src="file:///C:/Territorifiy - Low Storage/assets/internet.png" style="position: absolute; top: 620px; left: 540px; height: 110px; cursor: pointer; width: 110px; display: none; position: absolute;" onclick="education()"></image>
+      <!-- INTERNET -->
+      <image class="menubutton" id="internet" src="file:///C:/Territorifiy - Low Storage/assets/internet.png" style="position: absolute; top: 620px; left: 690px; height: 110px; cursor: pointer; width: 110px; display: none; position: absolute;" onclick="internet()"></image>
+      
+      <!-- MARCH BOOK -->
+      <image class="menubutton" id="marchbook" src="file:///C:/Territorifiy - Low Storage/assets/book.webp" style="position: absolute; top: 10px; left: 630px; height: 100px; cursor: pointer; width: 100px; display: none; position: absolute;" onclick="showmarch()"></image>
+      
+      <image id="background" src="file:///C:/Territorifiy - Low Storage/assets/background.jpg" style="display: none; position: absolute;"></image>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/gh/Polandian/Low-Storage-Fetching@main/app.js" onerror="FileError()"></script>
+
+</body>
+</html>
