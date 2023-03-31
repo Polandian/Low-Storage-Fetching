@@ -8,12 +8,12 @@ let deadline = new Date("2030-12-20T03:24:00")
 function isBefore(date1, date2) {
    return date1 < date2;
 }
-function FileError2(){
+function FileError2(x, y){
    let errortext = document.getElementById("errortext")
    window.onload = function(){
-      errortext.innerHTML = "OPEN-ALPHA IS OVER, THANKS FOR TESTING."
+      errortext.innerHTML = x
       errortext.style.display = "block"
-      console.log("error: file don't exist")
+      console.log(y)
       document.body.style.backgroundColor = "black";
    }
 }
@@ -227,5 +227,5 @@ if(isBefore(nowdate, deadline) == true){
 }
 
 if(isBefore(nowdate, deadline) == false){
-   FileError2()
+   FileError2("OPEN-ALPHA IS OVER, THANKS FOR COMING OVER", "error: open-alpha over")
 }
